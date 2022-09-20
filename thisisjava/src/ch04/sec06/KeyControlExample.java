@@ -1,4 +1,4 @@
-package ch04.sec05;
+package ch04.sec06;
 
 import java.util.Scanner;
 
@@ -8,8 +8,7 @@ public class KeyControlExample {
 		boolean run = true;
 		
 		int speed = 0;
-		
-		while(run) {
+		do {
 			System.out.println("------------------------");
 			System.out.println("1. 증속 | 2. 감속 | 3. 중지");
 			System.out.println("------------------------");
@@ -29,7 +28,7 @@ public class KeyControlExample {
 				continue;
 			}
 			System.out.println("현재 속도 = " + speed);
-		}
+		}while(run);
 		System.out.println("프로그램 종료");
 		
 	}
