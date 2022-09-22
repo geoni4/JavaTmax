@@ -21,33 +21,35 @@ public class MultiDimensionalArrayByNewExample2 {
 		System.out.println("전체 합: " + mathSum);
 		System.out.println("전체 평균: " + mathSum/(double)students);
 		
-		String[] names = {"홍길동", "일지매", "임꺽정"};
-		int[][] scores = {{80, 83, 85}, {86, 90, 92}, {88, 87, 95}};
-		System.out.println("-----------------성적표--------------------");
-		System.out.println("| 이름\t| 국어\t| 영어\t| 수학\t| 총점\t|");
-		System.out.println("-----------------------------------------");
-		int[] colSum = new int[scores.length];
+		String[] names = {"홍길동", "일지매", "임꺽정", "김길동"};
+		int[][] scores = {{80, 83, 85}, {86, 90, 92}, {88, 87, 95}, {80, 87, 90}};
+		System.out.println("---------------------성적표-----------------------");
+		System.out.println("| 이름\t| 국어\t| 영어\t| 수학\t| 총점\t| 평균\t|");
+		System.out.println("-------------------------------------------------");
+		int subjects = scores[0].length;
+		int[] colSum = new int[subjects];
 		int totalSum =0;
-		for(int i = 0;i<scores.length; i++) {
+		for(int i = 0;i<names.length; i++) {
 			int sum=0;
+			int j = 0;
 			System.out.print("| " + names[i] + "\t|");
-			for(int j =0; j<scores[i].length;j++) {
-				System.out.print(" " + scores[i][j] + "\t|");				
-				sum += scores[i][j];
-				colSum[j] += scores[i][j];
-				if(i == scores.length-1) {
-					totalSum += colSum[j];					
-				}
+			for(int score:scores[i]) {
+				System.out.print(" " + score + "\t|");
+				
+				colSum[j++] += score;
+				sum += score;
+				totalSum += score;
 			}
-			System.out.print(" " + sum +"\t|\n");
+			System.out.print(" " + sum +"\t|");
+			System.out.printf("%6.2f\t|\n", (double)sum/subjects);
 		}
-		
-		System.out.println("-----------------------------------------");
+		System.out.println("-------------------------------------------------");
 		System.out.print("| 총합\t|");
-		for(int i =0;i<colSum.length;i++) {
+		for(int i =0;i<subjects;i++) {
 			System.out.print(" "+colSum[i] + "\t|");			
 		}
-		System.out.print(" " + totalSum +"\t|\n");
+		System.out.printf(" %d\t|%6.2f\t|\n", totalSum, (double)totalSum/(names.length*subjects));
+		System.out.println("-------------------------------------------------");
 		System.out.println();
 	}
 }

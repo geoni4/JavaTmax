@@ -16,7 +16,7 @@ public class Example8 {
 		        num += 1;
 		    }
 		}
-		double avg = sum / (double)num;
+		double avg = (double) sum / num;
 		System.out.println("전체 합: " + sum);
 		System.out.println("평균: " + avg);
 	}
