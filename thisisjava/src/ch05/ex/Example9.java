@@ -3,6 +3,7 @@ package ch05.ex;
 import java.util.Scanner;
 
 public class Example9 {
+	//필드(global) 선언 후 명시적으로 초기화하지 않아도 jvm에서 자동 초기화 해줌
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		String strMenuNum, strStudents, strScores;
@@ -19,19 +20,24 @@ public class Example9 {
 			switch(strMenuNum) {
 			case "1":
 				while(true) {
-					System.out.print("학생수> ");
-					strStudents = scanner.nextLine();
-					students = Integer.parseInt(strStudents);
-					if(students <= 0) {
-						System.out.println("다시 입력하세요.");
-						continue;
+					try{
+						System.out.print("학생수> ");
+						strStudents = scanner.nextLine();
+						students = Integer.parseInt(strStudents);
+						
+						if(students < 1) {
+							System.out.println("다시 입력하세요.");
+							continue;
+						}
+						scores = new int[students];
+					} catch(Exception e){
+						System.out.println("숫자를 입력하세요.");
 					}
-					scores = new int[students];
 					break;
 				}
 				break;
 			case "2":
-				if(students < 1) {
+				if(scores == null) {
 					System.out.println("학생 수 먼저 입력하세요.");
 					continue;
 				}
@@ -51,14 +57,14 @@ public class Example9 {
 				}
 				break;
 			case "3":
-				if(students < 1) {
+				if(scores == null) {
 					System.out.println("학생 수 먼저 입력하세요.");
 					continue;
 				}
 				for(i =0; i<students;i++)	System.out.printf("scores[%d]: %d\n", i, scores[i]);
 				break;
 			case "4":
-				if(students < 1) {
+				if(scores == null) {
 					System.out.println("학생 수 먼저 입력하세요.");
 					continue;
 				}
@@ -68,7 +74,7 @@ public class Example9 {
 						maxScore = scores[i];
 					result += scores[i];
 				}
-				avgScore = result/(double)students;
+				avgScore = (double)result/students;
 				System.out.printf("최고 점수: %d\n", maxScore);
 				System.out.printf("최고 점수: %.1f\n", avgScore);
 				break;

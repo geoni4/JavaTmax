@@ -5,7 +5,7 @@ public class Car {
 	String company;
 	String model;	//null
 	String color;	//null
-	int maxSpeed;	//0
+	static final int maxSpeed = 0;	//0
 	
 
 	//생성자
@@ -24,7 +24,7 @@ public class Car {
 	}
 	public Car(String model, String color, int maxSpeed) {
 		this(model, color);
-		this.maxSpeed = maxSpeed;
+		//this.maxSpeed = maxSpeed;
 	}
 	
 	

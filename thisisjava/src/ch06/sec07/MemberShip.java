@@ -1,7 +1,7 @@
 package ch06.sec07;
 
 public class MemberShip {
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
 		Member m1 = new Member();
 		m1.setSno(1); m1.setName("강길동"); m1.setAddress("서울시");
 		Member m2 = new Member(2, "홍길동", "서울시");

@@ -16,6 +16,15 @@ public class Example8 {
 		        num += 1;
 		    }
 		}
+		sum =0;
+		num =0;
+		for(int[] arr: array){
+		    for(int a: arr){
+		        sum += a;
+		        num += 1;
+		    }
+		}
+		
 		double avg = (double) sum / num;
 		System.out.println("전체 합: " + sum);
 		System.out.println("평균: " + avg);
