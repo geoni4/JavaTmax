@@ -2,6 +2,7 @@ package ch06.ex;
 
 public class Example18 {
 	public static void main(String[] args) {
+		//싱글톤
 		ShopService obj1 = ShopService.getInstance();
 		ShopService obj2 = ShopService.getInstance();
 

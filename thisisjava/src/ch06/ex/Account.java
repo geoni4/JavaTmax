@@ -10,7 +10,7 @@ public class Account {
 	}
 	
 	public void setBalance(int balance) {
-		if(balance > MIN_BALANCE && balance <= MAX_BALANCE)
+		if(balance >= MIN_BALANCE && balance <= MAX_BALANCE)
 			this.balance = balance;
 	}
 }
