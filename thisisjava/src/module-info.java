@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author tatel
+ *
+ */
+module thisisjava {
+}
