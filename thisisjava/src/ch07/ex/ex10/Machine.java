@@ -6,6 +6,9 @@ public abstract class Machine{
     public abstract void work();
 }
 
-//public class Computer extends Machine{
-//    
-//}
+
+class Computer extends Machine{
+	public void work() {
+		
+	}
+}

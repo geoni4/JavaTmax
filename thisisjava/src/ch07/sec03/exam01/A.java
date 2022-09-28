@@ -7,6 +7,12 @@ public class A extends Object{
 	public A() {
 		System.out.println("A 생성자");
 	}
+	public void method1() {
+		
+	}
+	public void method2() {
+		
+	}
 }
 
 class B extends A{
