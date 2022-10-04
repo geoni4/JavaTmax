@@ -15,4 +15,4 @@ public class UtilExample {
 	   	int otherAge = Util.getValue(otherPair, "홍삼원");
 	   	System.out.println(otherAge);*/
 	}
-}
+}m
