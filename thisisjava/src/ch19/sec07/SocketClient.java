@@ -67,6 +67,7 @@ public class SocketClient {
 		}
 	}//close()
 	
+
 	
 	ChatServer chatServer;
 	Socket socket;

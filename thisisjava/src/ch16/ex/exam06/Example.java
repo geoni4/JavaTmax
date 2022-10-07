@@ -14,6 +14,6 @@ public class Example {
 	}
 }
 
-interface Function {	
-	public double apply(double x, double y);
-}
+//interface Function {	
+//	public double apply(double x, double y);
+//}

@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
@@ -15,6 +16,30 @@ import java.util.stream.Stream;
 import org.json.JSONObject;
 
 public class ChatServer {
+	public static void main(String[] args) {
+		try {
+			ChatServer chatServer = new ChatServer();
+			chatServer.start();
+			
+			System.out.println("----------------------------");
+			System.out.println("서버를 종료하려면 q를 입력하고 Enter");
+			System.out.println("----------------------------");
+			
+			Scanner scanner = new Scanner(System.in);
+			
+			while(true) {
+				String key = scanner.nextLine();
+				if(key.equalsIgnoreCase("q")) break;
+			}
+			scanner.close();
+			chatServer.stop();
+			
+		} catch(Exception e) {
+			System.out.println("[서버] " + e.getMessage());
+		}
+	}
+	
+	
 	//필드
 	ServerSocket serverSocket;
 	ExecutorService threadPool = Executors.newFixedThreadPool(100);
@@ -74,15 +99,12 @@ public class ChatServer {
 			serverSocket.close();
 			threadPool.shutdownNow();
 			chatRoom.values().stream()
-					.forEach(new Consumer<SocketClient>() {
-				@Override
-				public void accept(SocketClient t) {
-					t.close();
-				}
-			});
-			
+					.forEach(t -> t.close());
+			System.out.println("[서버] 종료됨");
 		}catch (Exception e) {
 			
 		}
 	}
+	
+	
 }

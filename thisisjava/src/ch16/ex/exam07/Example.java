@@ -13,12 +13,16 @@ public class Example {
 	
 	public static void main(String[] args) {
 		//최대값 얻기
-		int max = maxOrMin({
-			
-		})
+		int max = maxOrMin((x, y) -> x > y ? x : y);
+		System.out.println("최대값: " + max);
+		
+		//최소값 얻기
+		int min = maxOrMin((x, y) -> x < y ? x : y);
+		
+		System.out.println("최소값: " + min);
 	}
 }
 
-interface Operator {
-	public int apply(int x, int y);
-}
+//interface Operator {
+//	public int apply(int x, int y);
+//}
