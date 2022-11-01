@@ -7,10 +7,9 @@ public class Korean {
 	
 	//instance마다 생성되는 final 필드
 	// instance init block으로 초기화 할 수 있음
-	String ssn;
+	final String ssn;
 	
-	
-	
+
 	String name;
 	//생성자
 	public Korean(String ssn, String name) {
@@ -38,9 +37,9 @@ public class Korean {
 
 
 
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
+//	public void setSsn(String ssn) {
+//		this.ssn = ssn;
+//	}
 
 
 

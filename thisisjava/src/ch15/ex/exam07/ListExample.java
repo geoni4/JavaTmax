@@ -34,9 +34,8 @@ class Board{
 }
 
 class BoardDao{
-	
-	public <Board> List<Board> getBoardList(){
-		
-		return 
+	private List<Board> list; 
+	public List<Board> getBoardList(){
+		return list;
 	}
 }
