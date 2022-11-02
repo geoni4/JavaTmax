@@ -89,29 +89,36 @@ public class BoardExample {
 		
 		System.out.println("새 게시물 입력");
 		System.out.print("제목: ");
-		board.setBtitle(scanner.next());
+		board.setBtitle(scanner.nextLine());
 		System.out.print("내용: ");
-		board.setBcontent(scanner.next());
+		board.setBcontent(scanner.nextLine());
 		System.out.print("작성자: ");
-		board.setBwriter(scanner.next());
+		board.setBwriter(scanner.nextLine());
 		
-		try {
-			conn = getConnection();
-			
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, board.getBtitle());
-			pstmt.setString(2, board.getBcontent());
-			pstmt.setString(3, board.getBwriter());
-			
-			int result = pstmt.executeUpdate();
-			if(result > 0) System.out.println("추가된 행 개수: " + result);
-			
-			pstmt.close();
-			
-			conn.close();
-		} catch(Exception e) {
-			e.printStackTrace();
-			exit();
+		System.out.println("--------------------------------------------------");
+		System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
+		System.out.println("메뉴 선택: ");
+		String menuNo = scanner.nextLine();
+		
+		if("1".equals(menuNo)) {
+			try {
+				conn = getConnection();
+				
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, board.getBtitle());
+				pstmt.setString(2, board.getBcontent());
+				pstmt.setString(3, board.getBwriter());
+				
+				int result = pstmt.executeUpdate();
+				if(result > 0) System.out.println("추가된 행 개수: " + result);
+				
+				pstmt.close();
+				
+				conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+				exit();
+			}
 		}
 		list();
 	}
@@ -124,6 +131,7 @@ public class BoardExample {
 		System.out.print("bno: ");
 		int bno = Integer.parseInt(scanner.nextLine());
 		
+
 		
 		try {
 			conn = getConnection();
@@ -135,7 +143,7 @@ public class BoardExample {
 
 			Board board = new Board();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				board.setBno(rs.getInt("bno"));
 				board.setBtitle(rs.getString("btitle"));
 				board.setBcontent(rs.getString("bcontent"));
@@ -149,6 +157,18 @@ public class BoardExample {
 			}
 			rs.close();
 			
+			System.out.println("--------------------------------------------------");
+			System.out.println("보조 메뉴: 1. Update | 2. Delete | 3. List");
+			System.out.println("메뉴 선택: ");
+			String menuNo = scanner.nextLine();
+			System.out.println();
+			
+			if("1".equals(menuNo)) {
+				update(board);
+			} else if("2".equals(menuNo)) {
+				delete(board);
+			}
+			
 			pstmt.close();
 			conn.close();
 		} catch(Exception e) {
@@ -157,6 +177,14 @@ public class BoardExample {
 		}
 		list();
 	}
+	
+	public void update(Board board) {
+		
+	}
+	public void delete(Board board) {
+		
+	}
+	
 	public void clear() {
 		System.out.println("*** clear() 메소드 실행");
 		list();
