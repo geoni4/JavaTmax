@@ -13,3 +13,8 @@ select decode(userpassword, '1234', 0, 1)
 
 
 select * from accounts;
+
+select * from boards;
+
+
+select bno, bwriter, bdate, bcontent, btitle from boards order by bno desc;

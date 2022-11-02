@@ -10,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.Data;
 
+@Data
 public class BoardSelectExample2 {
 	public static void main(String[] args) {
 		Connection conn = null;
