@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/workSpace/javaWorkspace/thisisjava/lib/json-20220924.jar"/>
+	<classpathentry kind="lib" path="C:/workSpace/javaWorkspace/JavaTmax/thisisjava/lib/json-20220924.jar"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/TmaxClass/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/workSpace/javaWorkspace/JavaTmax/thisisjava/lib/lombok.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
